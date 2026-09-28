@@ -27,6 +27,19 @@ cd FAIRe-fier
 pip install -r requirements.txt
 ```
 
+## CI/CD and build artifacts
+This project includes a GitHub Actions workflow that builds distributable Python artifacts (`sdist` and `wheel`) on every push and pull request. The workflow uploads the generated files as CI artifacts so they can be reused elsewhere.
+
+Local build:
+```bash
+python -m pip install --upgrade pip build
+python -m build
+```
+
+The built wheel can be installed in another Python project with:
+```bash
+pip install dist/fairefier-0.1.0-py3-none-any.whl
+```
 
 ## Quick Start
 1. Download the metadata checklist template (`FAIRe_checklist*.xlsx`) from the [FAIRe metadata checklist page](https://fair-edna.github.io/download.html#faire-metadata-checklist) and save it in this repository (or in the directory specified by `config_data.data_dir`).

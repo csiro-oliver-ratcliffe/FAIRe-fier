@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fairefier"
+version = "0.1.0"
+description = "FAIRe-fier: FAIR eDNA metadata verifier"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Suk Yee Yong" },
+]
+license = "MIT"
+keywords = ["fair", "edna", "metadata", "validation", "shiny"]
+dependencies = [
+  "openpyxl~=3.1.2",
+  "pandas~=2.2.2",
+  "pydantic>=2.12.0,<3.0.0",
+  "requests>=2.31.0,<3.0.0",
+  "shiny==1.0.0",
+]
+
+[tool.setuptools]
+py-modules = [
+  "app",
+  "config_data",
+  "create_validator",
+  "validate_module",
+]
+
+[tool.setuptools.package-data]
+fairefier = ["*.xlsx"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
